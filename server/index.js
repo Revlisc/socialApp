@@ -3,7 +3,7 @@ import bodyParser from 'body-parser'
 import  mongoose from 'mongoose'
 import cors from 'cors'
 
-import //routes from './routes/routeName.js
+import postRoutes from './routes/posts.js'
 
 const app = express();
 
@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
 //import the different routes
-app.use('/route', routes)
+app.use('/posts', postRoutes)
 
 const CONNECTION = process.env.CONNECTION
 const PORT = process.env.PORT
