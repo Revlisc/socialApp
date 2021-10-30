@@ -4,7 +4,7 @@ const App = () => {
 
     return (
         <div>
-            <h1>Hello</h1>
+            Load a popular page if not signed in/have link to login
         </div>
     )
 }
