@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import {Container, Grid, Grow} from '@material-ui/core'
+import {Container, Grid} from '@material-ui/core'
 import Posts from '../Posts/Posts'
-import  useStyles  from './styles'
+//import  useStyles  from './styles'
 import { useDispatch } from 'react-redux'
 
 import { getPosts } from '../../actions/posts'
@@ -9,7 +9,7 @@ import Form from '../Form/Form'
 
 const Home = () => {
     const [currentId, setCurrentId] = useState(null)
-    const classes = useStyles()
+    //const classes = useStyles()
     const dispatch = useDispatch()
 
     useEffect(() => {
