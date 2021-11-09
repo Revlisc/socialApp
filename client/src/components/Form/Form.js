@@ -1,10 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { TextField, Button, Typography, Paper } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
-import { createPost } from '../../actions/posts'
+import { createPost, updatePost } from '../../actions/posts'
+import { useSelector } from 'react-redux'
 
-const Form = () => {
+
+const Form = ({ currentId, setCurrentId }) => {
     
+    const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null)
     const dispatch = useDispatch()
     const [postData, setPostData] = useState({
         creator: '',
@@ -12,18 +15,29 @@ const Form = () => {
         message:'',
         tags: '',
     })
+
+    useEffect(() => {
+        if(post) setPostData(post)
+    }, [post])
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(createPost(postData))
+
+        if(currentId) {
+            dispatch(updatePost(currentId, postData))
+        } else {
+            dispatch(createPost(postData))
+        }
+        clear()
     }
 
     const clear = () => {
-
+        setCurrentId(null)
+        setPostData({creator: '', title: '', message: '', tags: ''})
     }
     return (
         <Paper >
             <form autoComplete='off' noValidate onSubmit={handleSubmit} >
-                <Typography variant='h6'>New Post</Typography>
+                <Typography variant='h6'>{currentId ? 'Edit' : 'New'} Post</Typography>
                 <TextField
                     name='creator'
                     variant='outlined'
@@ -57,7 +71,7 @@ const Form = () => {
                     label='Tags'
                     fullWidth
                     value={postData.tags}
-                    onChange={(e) => setPostData({...postData, tags: e.target.value})}
+                    onChange={(e) => setPostData({...postData, tags: e.target.value.split(',')})}
                 ></TextField>
                 <Button variant='contained' size='large' type='submit' color='primary'>Post</Button>
                 <Button variant='contained' size='small' onClick={clear} color='secondary'>Undo</Button>

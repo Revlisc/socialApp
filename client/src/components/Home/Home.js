@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import {Container, Grid, Grow} from '@material-ui/core'
 import Posts from '../Posts/Posts'
 import  useStyles  from './styles'
@@ -8,21 +8,21 @@ import { getPosts } from '../../actions/posts'
 import Form from '../Form/Form'
 
 const Home = () => {
-    
+    const [currentId, setCurrentId] = useState(null)
     const classes = useStyles()
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(getPosts())
-    }, [dispatch])
+    }, [currentId, dispatch])
     return (
         <Container>
-            <Grid container justify='space-between' align-items='stretch' spacing={3} >
+            <Grid container direction='column-reverse' justify='space-between' align-items='stretch' spacing={3} >
                 <Grid item xs={12} sm={7} >
-                    <Posts />
+                    <Posts setCurrentId={setCurrentId}/>
                 </Grid>
             </Grid>
-            <Form />
+            <Form  currentId={currentId} setCurrentId={setCurrentId}/>
         </Container>
     )
 }
