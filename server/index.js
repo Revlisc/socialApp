@@ -17,8 +17,12 @@ dotenv.config()
 //import the different routes
 app.use('/posts', postRoutes)
 
+app.get('/', (req, res) => {
+    res.send('Hello to social API')
+})
+
 const CONNECTION = process.env.CONNECTION
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 5000
 
 mongoose.connect(CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
