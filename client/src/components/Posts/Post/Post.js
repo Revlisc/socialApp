@@ -1,5 +1,5 @@
-import React from 'react'
-import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core'
+import React, { useState, useEffect } from 'react'
+import { Card, CardActions, CardContent, Button, Typography, Avatar } from '@material-ui/core'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 import DeleteIcon from '@material-ui/icons/Delete'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
@@ -7,14 +7,20 @@ import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
 import moment from 'moment'
 import { useDispatch } from 'react-redux'
 import { deletePost, likePost } from '../../../actions/posts'
+import { useLocation } from 'react-router-dom'
 
 
 const Post = ({post, setCurrentId}) => {
     
     const dispatch = useDispatch()
+    const location = useLocation()
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
 
-    const user = JSON.parse(localStorage.getItem('profile'))
-
+    useEffect(() => {
+        setUser(JSON.parse(localStorage.getItem('profile')))
+        console.log('User is', user)
+    }, [location])
+    
     const Likes = () => {
         if (post.likes.length > 0) {
         return post.likes.find((like) => like === (user?.result?.googleId || user?.result?._id))
@@ -30,6 +36,7 @@ const Post = ({post, setCurrentId}) => {
     return (
         <Card >
             <div>
+                <Avatar alt={user.result.name} >{post.name.charAt(0)}</Avatar>
                 <Typography variant='h6'>{post.name}</Typography>
                 <Typography variant='body2'>{moment(post.createdAt).fromNow()}</Typography>
             </div>

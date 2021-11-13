@@ -25,6 +25,7 @@ const Navbar = () => {
             }
         }
         setUser(JSON.parse(localStorage.getItem('profile')))
+        console.log('NAVBAR USER IS', user)
     }, [location])
 
     const logout = () => {

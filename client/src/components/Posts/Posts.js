@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Grid, CircularProgress} from '@material-ui/core'
+import { CircularProgress} from '@material-ui/core'
+import * as MUI from '@material-ui/core'
 import Post from './Post/Post'
 
 const Posts = ({ currentId, setCurrentId }) => {
@@ -10,15 +11,15 @@ const Posts = ({ currentId, setCurrentId }) => {
     console.log(posts)
     return (
         !posts.length ? <CircularProgress /> : (
-            <Grid container alignItems='stretch' spacing={3}>
+            <MUI.Stack  alignItems='stretch' spacing={3}>
                 {
                     posts.map((post) => (
-                        <Grid item key={post._id} xs={12} sm={6}>
+                        <div  key={post._id} xs={12} sm={6}>
                             <Post post={post} setCurrentId={setCurrentId}/>
-                        </Grid>
+                        </div>
                     ))
                 }
-            </Grid>
+            </MUI.Stack>
         )
     )
 }
