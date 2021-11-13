@@ -8,6 +8,7 @@ import moment from 'moment'
 import { useDispatch } from 'react-redux'
 import { deletePost, likePost } from '../../../actions/posts'
 import { useLocation } from 'react-router-dom'
+import Comments from '../Comments/Comments'
 
 
 const Post = ({post, setCurrentId}) => {
@@ -36,7 +37,7 @@ const Post = ({post, setCurrentId}) => {
     return (
         <Card >
             <div>
-                <Avatar alt={user.result.name} >{post.name.charAt(0)}</Avatar>
+                <Avatar alt={''} >{post?.name?.charAt(0)}</Avatar>
                 <Typography variant='h6'>{post.name}</Typography>
                 <Typography variant='body2'>{moment(post.createdAt).fromNow()}</Typography>
             </div>
@@ -66,6 +67,7 @@ const Post = ({post, setCurrentId}) => {
                 )}
                 
             </CardActions>
+            <Comments post={post}/>
         </Card>
     )
 }
