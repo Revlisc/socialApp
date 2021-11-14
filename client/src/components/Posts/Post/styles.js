@@ -1,18 +1,26 @@
 import { makeStyles } from '@material-ui/styles';
 
 export default makeStyles(() => ({
-  appBar: {
+  postHeader: {
     borderRadius: 15,
-    margin: '30px 0',
-    display: 'flex',
+    margin: '10px 0',
+    display: 'inline-flex',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'start',
     alignItems: 'center',
+    // color: 'red',
   },
-  heading: {
-    color: 'rgba(0,183,255, 1)',
+  postHeaderItem: {
+    paddingLeft: '10px',
+    display: 'block',
+    flexDirection: 'column',
   },
-  image: {
-    marginLeft: '15px',
+  textContent: {
+
+  },
+  edit: {
+    justifyContent: 'end',
+    alignItems: 'center',
+    color: 'black',
   },
 }));
