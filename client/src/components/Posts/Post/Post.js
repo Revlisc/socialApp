@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Card, CardActions, CardContent, Button, Typography, Avatar } from '@material-ui/core'
+import { Card, CardActions, CardContent, Button, Typography, Avatar, CardMedia } from '@material-ui/core'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 import DeleteIcon from '@material-ui/icons/Delete'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
@@ -48,8 +48,15 @@ const Post = ({post, setCurrentId}) => {
         }
         return <>Comments</>
     }
+
+    if (post.file) {
+        console.log('post file exists!')
+    }
     return (
-        <Card >
+        <Card style={{margin: 0}}>
+            {post.file ? (
+            <CardMedia style={{height: 0, paddingTop: '56.25%', backgroundColor: 'rgba(0, 0, 0, 0.5)' }} image={post.file } title={post.title} />
+            ) : null }
             <div className={classes.postHeader}>
                 <Avatar alt={''} >{post?.name?.charAt(0)}</Avatar>
                 <Typography className={classes.postHeaderItem} variant='h6'>{post.name}</Typography>

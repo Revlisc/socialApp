@@ -5,6 +5,11 @@ import decode from 'jwt-decode'
 import { useDispatch } from 'react-redux'
 import { useNavigate, useLocation } from 'react-router-dom'
 import useStyles from './styles'
+import Logo from '../../Images/Social-logos_transparent.png'
+import HomeIcon from '@material-ui/icons/Home';
+import GroupIcon from '@material-ui/icons/Group';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import ChatIcon from '@material-ui/icons/Chat';
 
 
 const Navbar = () => {
@@ -16,7 +21,7 @@ const Navbar = () => {
     const location = useLocation()
 
     useEffect(() => {
-        const token = user?.token
+        const token = user?.tokesn
 
         if(token) {
             const decodedToken = decode(token)
@@ -39,14 +44,20 @@ const Navbar = () => {
             
             <AppBar className={classes.appBar} position='static' color='inherit' >
                 <div >
-                    <Typography component={Link} to='/' variant='h2' align='start'>SocialApp</Typography>
+                    <Typography component={Link} to='/' variant='h2'><img className={classes.logoName} src={Logo} alt='project icon' /></Typography>
+                    <div className={classes.navIcons}> 
+                        <HomeIcon />
+                        <GroupIcon />
+                        <NotificationsIcon />
+                        <ChatIcon />
+                    </div>
                 </div>
                 <Toolbar >
                     {user ? (
-                        <div> 
+                        <div className={classes.userInfo}> 
                             <Avatar alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
                             <Typography variant='h6'>{user.result.name}</Typography>
-                            <Button variant='contained' color='secondary' onClick={logout}>Logout</Button>
+                            <Button onClick={logout}>Logout</Button>
                         </div>
                     ) : (
                         <Button component={Link} to='/auth' variant='contained' color='primary'>Login</Button>

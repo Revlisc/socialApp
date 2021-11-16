@@ -6,8 +6,9 @@ export default makeStyles(() => ({
     margin: '30px 0',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: 'rgb(248,248,252)',
   },
   heading: {
     color: 'rgba(0,183,255, 1)',
@@ -15,4 +16,21 @@ export default makeStyles(() => ({
   image: {
     marginLeft: '15px',
   },
+  userInfo: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  logoName: {
+    height: '6rem',
+    width: '10rem',
+    color: 'rgb(125,127,197)',
+    float: 'left',
+  },
+  navIcons: {
+    display: 'inline-flex',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+  }
 }));
