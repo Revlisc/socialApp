@@ -71,7 +71,7 @@ const Post = ({post, setCurrentId}) => {
                 )}
             </div>
             <div>
-                <Typography variant='body2' color='textSecondary'>{post.tags.map((tag) => `#${tag} `)}</Typography>
+                <Typography variant='body2' color='textSecondary' className={classes.hashtags}>{post.tags.map((tag) => `#${tag} `)}</Typography>
 
             </div>
             

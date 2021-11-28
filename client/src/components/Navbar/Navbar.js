@@ -46,10 +46,9 @@ const Navbar = () => {
                 <div >
                     <Typography component={Link} to='/' variant='h2'><img className={classes.logoName} src={Logo} alt='project icon' /></Typography>
                     <div className={classes.navIcons}> 
-                        <HomeIcon />
-                        <GroupIcon />
-                        <NotificationsIcon />
-                        <ChatIcon />
+                        <GroupIcon className={classes.navIcon}/>
+                        <NotificationsIcon className={classes.navIcon}/>
+                        <ChatIcon className={classes.navIcon}/>
                     </div>
                 </div>
                 <Toolbar >

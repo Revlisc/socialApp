@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import FileBase from 'react-file-base64';
 import useStyles from './styles'
 import ImageSearchIcon from '@material-ui/icons/ImageSearch';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
+//import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 const Form = ({ currentId, setCurrentId }) => {
     
@@ -42,7 +42,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
     if(!user?.result?.name) {
         return (
-            <Paper >
+            <Paper className={classes.noUserDefault}>
                 <Typography variant='h6' align='center'>
                     Please sign in to create and like posts.
                 </Typography>
@@ -72,7 +72,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 ></TextField>
                 <ImageSearchIcon />
                 <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, file: base64 })} /></div>
-                <Button variant='contained' size='small' type='submit' color='info'><AddCircleIcon /></Button>
+                <Button variant='contained' size='small' type='submit' color='info'>Post</Button>
                 <Button variant='contained' size='small' onClick={clear} color='secondary'>Cancel</Button>
             </form>
         </Paper>

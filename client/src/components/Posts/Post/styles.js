@@ -23,4 +23,7 @@ export default makeStyles(() => ({
     alignItems: 'center',
     color: 'black',
   },
+  hashtag: {
+    
+  }
 }));

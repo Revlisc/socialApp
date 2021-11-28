@@ -7,6 +7,15 @@ export default makeStyles(() => ({
       display: 'flex',
       alignItems: 'center',
       margin: '0 auto',
+      marginBottom: 15,
       
+  },
+  noUserDefault: {
+    maxWidth: '360px',
+    width: '90%',
+    marginBottom: '2.5rem',
+    display: 'flex',
+    alignContent: 'center',
+    margin: '0 auto',
   }
 }));

@@ -13,11 +13,21 @@ const Posts = ({ currentId, setCurrentId }) => {
     console.log(posts)
     return (
         !posts.length ? <CircularProgress /> : (
-            <MUI.Stack className={classes.postEntry}>
+            <MUI.Stack className={classes.postEntry} divider={
+                
+                <div 
+                  style={{ 
+                    width: "100%", 
+                    height: 15,
+                    backgroundColor: "white" 
+                  }} 
+                />
+            }>
                 {
                     posts.map((post) => (
-                        <div  key={post._id} xs={12} sm={8}>
-                            <Post post={post} setCurrentId={setCurrentId}/>
+                        <div  key={post._id} xs={12} sm={8} >
+                            <Post post={post} setCurrentId={setCurrentId} className={classes.post} />
+                            
                         </div>
                     ))
                 }

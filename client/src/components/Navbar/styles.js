@@ -30,7 +30,15 @@ export default makeStyles(() => ({
   },
   navIcons: {
     display: 'inline-flex',
-    justifyContent: 'space-between',
+    alignItems: 'space-between',
+    marginLeft: '25px',
     flexDirection: 'row',
+    
+  },
+  navIcon: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginLeft: '33%',
+    paddingLeft: '4rem',
   }
 }));
