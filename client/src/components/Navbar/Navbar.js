@@ -40,9 +40,9 @@ const Navbar = () => {
         setUser(null)
     }
     return (
-        <Container maxwidth='lg'>
+        <Container sx={{ flexGrow: 1 }}>
             
-            <AppBar className={classes.appBar} position='static' color='inherit' >
+            <AppBar className={classes.appBar} color='inherit' >
                 <div >
                     <Typography component={Link} to='/' variant='h2'><img className={classes.logoName} src={Logo} alt='project icon' /></Typography>
                     <div className={classes.navIcons}> 
@@ -59,7 +59,7 @@ const Navbar = () => {
                             <Button onClick={logout}>Logout</Button>
                         </div>
                     ) : (
-                        <Button component={Link} to='/auth' variant='contained' color='primary'>Login</Button>
+                        <Button component={Link} to='/auth' variant='contained' className={classes.loginBtn}>Login</Button>
                     )}
                 </Toolbar>
             </AppBar>

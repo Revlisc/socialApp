@@ -2,14 +2,19 @@ import { makeStyles } from '@material-ui/styles';
 
 export default makeStyles(() => ({
   appBar: {
-    borderRadius: 15,
-    margin: '30px 0',
+    
+    //margin: '30px',
+    
     display: 'flex',
+    position: 'absolute',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: 'rgb(248,248,252)',
+    maxWidth: '100%',
+    width: '100%',
   },
+  
   heading: {
     color: 'rgba(0,183,255, 1)',
   },
@@ -27,6 +32,7 @@ export default makeStyles(() => ({
     width: '10rem',
     color: 'rgb(125,127,197)',
     float: 'left',
+    marginLeft: '10px',
   },
   navIcons: {
     display: 'inline-flex',
@@ -40,5 +46,9 @@ export default makeStyles(() => ({
     justifyContent: 'space-between',
     marginLeft: '33%',
     paddingLeft: '4rem',
+    color: '#5A4AE3',
+  },
+  loginBtn: {
+    backgroundColor: '#5A4AE3',
   }
 }));

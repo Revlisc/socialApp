@@ -16,9 +16,9 @@ const Home = () => {
         dispatch(getPosts())
     }, [currentId, dispatch])
     return (
-        <Container>
-            <Form  currentId={currentId} setCurrentId={setCurrentId}/>
-            <Grid container direction='column-reverse' justify='space-between' align-items='stretch' spacing={3} >
+        <Container className={classes.homeGridContainer}>
+            <Form  currentId={currentId} setCurrentId={setCurrentId} className={classes.homeGrid}/>
+            <Grid container direction='column-reverse' justify='space-between' align-items='stretch' >
                 <Grid item xs={12} sm={7} className={classes.homeGrid}>
                     <Posts setCurrentId={setCurrentId}/>
                 </Grid>
