@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react'
 import { Typography, TextField, Button } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
 import { addComment } from '../../../actions/posts'
+import AddComment from '@material-ui/icons/AddComment'
 
 const Comments = ({post}) => {
     
@@ -49,7 +50,7 @@ const Comments = ({post}) => {
                             onChange={(e) => setComment(e.target.value)}
                         />
                         <Button style={{marginTop: '10px'}} fullWidth disabled={!comment} onClick={handleClick}>
-                            Comment
+                            <AddComment />Comment
                         </Button>
                     </div>
                 )}

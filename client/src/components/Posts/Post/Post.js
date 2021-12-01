@@ -4,6 +4,8 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 import DeleteIcon from '@material-ui/icons/Delete'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
+import CommentIcon from '@material-ui/icons/Comment'
+import ShareIcon from '@material-ui/icons/Share'
 import moment from 'moment'
 import { useDispatch } from 'react-redux'
 import { deletePost, likePost } from '../../../actions/posts'
@@ -44,16 +46,17 @@ const Post = ({post, setCurrentId}) => {
 
     const CommentNumber = () => {
         if (post.comments.length > 0) {
-            return <>Comments ({post.comments.length})</>
+            return <><CommentIcon/>Comments ({post.comments.length})</>
         }
-        return <>Comments</>
+        return <> <CommentIcon/>Comments</>
     }
 
     if (post.file) {
         console.log('post file exists!')
     }
     return (
-        <Card style={{margin: 0}}>
+        <Card className={classes.postItem}>
+            <div className={classes.postItemContainer}>
             {post.file ? (
             <CardMedia style={{height: 0, paddingTop: '56.25%', backgroundColor: 'rgba(0, 0, 0, 0.5)' }} image={post.file } title={post.title} />
             ) : null }
@@ -78,16 +81,20 @@ const Post = ({post, setCurrentId}) => {
             <CardContent>
                 <Typography variant='body1' gutterBottom className={classes.textContent}>{post.message}</Typography>
             </CardContent>
+            <hr />
             <CardActions>
-                <Button size='small' color='primary' disabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
+                <Button size='small' className={classes.actionBtn} disabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
                     
                     <Likes />
                 </Button>
-                <Button size='small' color='primary' disabled={!user?.result} onClick={commentButton} >
+                <Button size='small' className={classes.actionBtn}  onClick={commentButton} >
                     <CommentNumber />
                 </Button>
+                <Button size='small' className={classes.actionBtn} disabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
+                    <ShareIcon />Share
+                </Button>
                 {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
-                    <Button size='small' color='primary' disabled={!user?.result} onClick={() => dispatch(deletePost(post._id))}>
+                    <Button size='small' className={classes.actionBtn} disabled={!user?.result} onClick={() => dispatch(deletePost(post._id))}>
                     <DeleteIcon fontSize='small' />
                         Delete
                     </Button>
@@ -97,7 +104,7 @@ const Post = ({post, setCurrentId}) => {
             {
                 showComment && <Comments post={post} /> 
             }
-            
+            </div>
         </Card>
     )
 }

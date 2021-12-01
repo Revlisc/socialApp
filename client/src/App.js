@@ -5,12 +5,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Auth from './components/Auth/Auth';
+import './App.css'
 
 const App = () => (
   <BrowserRouter>
-    <Container maxWidth="lg">
+    <Container >
       <Navbar />
-      <div style={{marginTop: 120}} >
+      <div style={{marginTop: 120 }} >
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/auth' element={<Auth />} />

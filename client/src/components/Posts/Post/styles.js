@@ -23,7 +23,19 @@ export default makeStyles(() => ({
     alignItems: 'center',
     color: 'black',
   },
-  hashtag: {
-    
+  hashtags: {
+    paddingLeft: '15px',
+  },
+  postItem: {
+    margin: '0',
+    borderRadius: '1rem',
+  },
+  postItemContainer: {
+    marginLeft: '1.5rem',
+    marginTop: '1rem',
+    marginRight: '1.5rem',
+  },
+  actionBtn: {
+    color: '#5A4AE3',
   }
 }));

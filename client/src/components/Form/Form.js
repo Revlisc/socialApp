@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from 'react'
-import { TextField, Button, Typography, Paper } from '@material-ui/core'
+import { TextField, Button, Typography, Paper, Avatar } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
 import { createPost, updatePost } from '../../actions/posts'
 import { useSelector } from 'react-redux'
 import FileBase from 'react-file-base64';
 import useStyles from './styles'
-import ImageSearchIcon from '@material-ui/icons/ImageSearch';
-//import AddCircleIcon from '@material-ui/icons/AddCircle';
+
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto'
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
+import CloseIcon from '@material-ui/icons/Close'
 
 const Form = ({ currentId, setCurrentId }) => {
     
@@ -17,6 +19,7 @@ const Form = ({ currentId, setCurrentId }) => {
         tags: '',
         file: '',
     })
+    const [addPhoto, setAddPhoto] = useState(false)
     const user = JSON.parse(localStorage.getItem('profile'))
     const classes = useStyles()
 
@@ -40,6 +43,10 @@ const Form = ({ currentId, setCurrentId }) => {
         setPostData({message: '', tags: '', file: ''})
     }
 
+    const photoButton = () => {
+        setAddPhoto((set) => !set)
+    }
+
     if(!user?.result?.name) {
         return (
             <Paper className={classes.noUserDefault}>
@@ -50,12 +57,13 @@ const Form = ({ currentId, setCurrentId }) => {
         )
     }
     return (
-        <Paper className={classes.form}>
+        <Paper className={classes.formBox}>
             <form autoComplete='off' noValidate onSubmit={handleSubmit} >
                 <TextField
                     name='message'
                     variant='outlined'
-                    label={`What do you want to share?`}
+                    label={`What do you want to share, ${user.result.name.split(' ')[0]}?`}
+                    className={classes.textFieldUpload}
                     multiline
                     fullWidth
                     value={postData.message}
@@ -66,14 +74,26 @@ const Form = ({ currentId, setCurrentId }) => {
                     name='tags'
                     variant='outlined'
                     label='Hashtags'
+                    className={classes.textFieldUpload}
                     fullWidth
                     value={postData.tags}
-                    onChange={(e) => setPostData({...postData, tags: e.target.value.split(',')})}
+                    onChange={(e) => setPostData({...postData, tags: e.target.value.split(' ')})}
                 ></TextField>
-                <ImageSearchIcon />
-                <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, file: base64 })} /></div>
-                <Button variant='contained' size='small' type='submit' color='info'>Post</Button>
-                <Button variant='contained' size='small' onClick={clear} color='secondary'>Cancel</Button>
+                
+                {addPhoto ? (
+                    <div>
+                        <FileBase className={classes.fileBaseBtn} type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, file: base64 })} ><AddAPhotoIcon style={{color: '#5A4AE3'}}/></FileBase >
+                    </div>
+                ) : (
+                    <Button onClick={photoButton}>
+                        <AddAPhotoIcon style={{color: '#5A4AE3'}}/>
+                    </Button>
+                )}
+                <hr />
+                <div >
+                    <Button className={classes.formButtonContainer} size='small' type='submit' ><ArrowForwardIcon />Post</Button>
+                    <Button className={classes.formButtonContainer} size='small' onClick={clear} ><CloseIcon />Cancel</Button>
+                </div>
             </form>
         </Paper>
     )
