@@ -1,0 +1,8 @@
+{
+  "name": "socialApp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Revlisc/socialApp.git",
+  "author": "dales <dalesimmons0210@gmail.com>",
+  "license": "MIT"
+}
