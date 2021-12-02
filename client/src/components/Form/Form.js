@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { TextField, Button, Typography, Paper, Avatar } from '@material-ui/core'
+import { TextField, Button, Typography, Paper } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
 import { createPost, updatePost } from '../../actions/posts'
 import { useSelector } from 'react-redux'
@@ -77,7 +77,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     className={classes.textFieldUpload}
                     fullWidth
                     value={postData.tags}
-                    onChange={(e) => setPostData({...postData, tags: e.target.value.split(' ')})}
+                    onChange={(e) => setPostData({...postData, tags: e.target.value.split(',')})}
                 ></TextField>
                 
                 {addPhoto ? (

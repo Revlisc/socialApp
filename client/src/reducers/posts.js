@@ -1,6 +1,6 @@
 import { COMMENT, FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../actionTypes/actionTypes';
 
-export default (posts = [], action) => {
+export default function postReducer(posts = [], action) {
   switch (action.type) {
     case FETCH_ALL:
       return action.payload;

@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate, useLocation } from 'react-router-dom'
 import useStyles from './styles'
 import Logo from '../../Images/Social-logos_transparent.png'
-import HomeIcon from '@material-ui/icons/Home';
+//import HomeIcon from '@material-ui/icons/Home';
 import GroupIcon from '@material-ui/icons/Group';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -19,9 +19,16 @@ const Navbar = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const location = useLocation()
+    
+    const logout = () => {
+            dispatch({ type: 'LOGOUT'})
+
+            navigate('/')
+            setUser(null)
+    }
 
     useEffect(() => {
-        const token = user?.tokesn
+        const token = user?.tokens
 
         if(token) {
             const decodedToken = decode(token)
@@ -30,15 +37,11 @@ const Navbar = () => {
             }
         }
         setUser(JSON.parse(localStorage.getItem('profile')))
-        console.log('NAVBAR USER IS', user)
-    }, [location])
+        //console.log('NAVBAR USER IS', user)
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [location, user])
 
-    const logout = () => {
-        dispatch({ type: 'LOGOUT'})
-
-        navigate('/')
-        setUser(null)
-    }
+    
     return (
         <Container sx={{ flexGrow: 1 }}>
             

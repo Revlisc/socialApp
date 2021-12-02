@@ -12,7 +12,7 @@ const initialState = {firstName: '', lastName: '', email: '', password: '', conf
 
 const Auth = () => {
     
-    const state = null
+    
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [registeredUser, setRegisteredUser] = useState(false)

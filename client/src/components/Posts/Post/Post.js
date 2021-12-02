@@ -24,7 +24,7 @@ const Post = ({post, setCurrentId}) => {
 
     useEffect(() => {
         setUser(JSON.parse(localStorage.getItem('profile')))
-        console.log('User is', user)
+        //console.log('User is', user)
     }, [location])
 
     const commentButton = () => {
