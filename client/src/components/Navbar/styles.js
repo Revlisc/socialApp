@@ -35,17 +35,20 @@ export default makeStyles(() => ({
     marginLeft: '10px',
   },
   navIcons: {
-    display: 'inline-flex',
-    alignItems: 'space-between',
-    marginLeft: '25px',
-    flexDirection: 'row',
+    //display: 'inline-flex',
+    marginLeft: '20%',
+    width: '100%',
+    maxWidth: '100%',
+    //flexDirection: 'row',
     
   },
   navIcon: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    marginLeft: '33%',
-    paddingLeft: '4rem',
+    //float: 'right',
+    
+    textAlign: 'center',
+    paddingLeft: '140px',
+    paddingRight: '140px',
+    textDecoration: 'none',
     color: '#5A4AE3',
   },
   loginBtn: {

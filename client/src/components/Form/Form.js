@@ -91,7 +91,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 )}
                 <hr />
                 <div >
-                    <Button className={classes.formButtonContainer} size='small' type='submit' ><ArrowForwardIcon />Post</Button>
+                    <Button className={classes.formButtonContainer} disabled={postData.tags.length === 0 && postData.message.length === 0} size='small' type='submit' ><ArrowForwardIcon />Post</Button>
                     <Button className={classes.formButtonContainer} size='small' onClick={clear} ><CloseIcon />Cancel</Button>
                 </div>
             </form>
