@@ -57,8 +57,9 @@ const Navbar = () => {
                 <Toolbar >
                     {user ? (
                         <div className={classes.userInfo}> 
+                            
                             <Avatar alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
-                            <Typography variant='h6'>{user.result.name}</Typography>
+                            <Typography component={Link} to='/profile' variant='h6'>{user.result.name}</Typography>
                             <Button onClick={logout}>Logout</Button>
                         </div>
                     ) : (
