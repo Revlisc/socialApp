@@ -5,8 +5,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Auth from './components/Auth/Auth';
+import Profile from './components/Profile/Profile'
 import './App.css'
 
+//need to add specific route for THAT id
 const App = () => (
   <BrowserRouter>
     <Container >
@@ -15,6 +17,7 @@ const App = () => (
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/auth' element={<Auth />} />
+        <Route path='/profile' element={<Profile />} />
       </Routes>
       </div>
     </Container>
