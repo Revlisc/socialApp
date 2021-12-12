@@ -39,7 +39,7 @@ const Navbar = () => {
         setUser(JSON.parse(localStorage.getItem('profile')))
         //console.log('NAVBAR USER IS', user)
         //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [location, user])
+    }, [location])
 
     
     return (
@@ -57,10 +57,10 @@ const Navbar = () => {
                 <Toolbar >
                     {user ? (
                         <div className={classes.userInfo}> 
-                            <Typography component={Link} to='/profile'>
+                            <Button component={Link} to='/profile'  >
                                 <Avatar alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
                                 <Typography variant='h6'>{user.result.name}</Typography>
-                            </Typography>
+                            </Button>
                             <Button onClick={logout}>Logout</Button>
                         </div>
                     ) : (

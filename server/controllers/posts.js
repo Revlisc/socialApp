@@ -15,6 +15,7 @@ export const getPosts = async (req, res) => {
     }
 }
 
+
 export const getPost = async (req, res) => { 
     const { id } = req.params;
 
