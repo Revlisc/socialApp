@@ -1,4 +1,4 @@
-import { COMMENT, FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../actionTypes/actionTypes';
+import { FETCH_BY_USER, COMMENT, FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../actionTypes/actionTypes';
 import * as api from '../api/index.js';
 
 export const getPosts = () => async (dispatch) => {
@@ -10,6 +10,16 @@ export const getPosts = () => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const getByUser = (id) => async (dispatch) => {
+  try {
+    const { data: {data}} = await api.fetchByUser(id)
+    
+    dispatch({ type: FETCH_BY_USER, payload: { data }})
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 export const createPost = (post) => async (dispatch) => {
   try {

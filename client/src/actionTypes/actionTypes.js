@@ -6,3 +6,4 @@ export const LIKE = 'LIKE';
 export const AUTH = 'AUTH';
 export const LOGOUT = 'LOGOUT';
 export const COMMENT = 'COMMENT';
+export const FETCH_BY_USER = 'FETCH_BY_USER'
