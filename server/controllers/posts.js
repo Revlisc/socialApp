@@ -15,17 +15,17 @@ export const getPosts = async (req, res) => {
     }
 }
 
-export const getUserPosts = async (req, res) => {
-    const { user } = req.userId
+// export const getUserPosts = async (req, res) => {
+//     const { user } = req.userId
 
-    try {
-        const posts = await PostMessage.findById(user)
+//     try {
+//         const posts = await PostMessage.findById(user)
 
-        res.status(200).json(posts)
-    } catch (error) {
-        res.status(404).json({message: error.message})
-    }
-}
+//         res.status(200).json(posts)
+//     } catch (error) {
+//         res.status(404).json({message: error.message})
+//     }
+// }
 
 export const getPost = async (req, res) => { 
     const { id } = req.params;

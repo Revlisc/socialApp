@@ -2,7 +2,7 @@ import { TextField, Typography } from '@material-ui/core'
 import React, {useState, useEffect} from 'react'
 import {useLocation} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getByUser } from '../../actions/posts'
+import { getPosts } from '../../actions/posts'
 import Post from '../Posts/Post/Post'
 
 const Profile = () => {
@@ -13,7 +13,7 @@ const Profile = () => {
 
     useEffect(() => {
         setUser(JSON.parse(localStorage.getItem('profile')))
-        dispatch(getByUser(user.name))
+        dispatch(getPosts())
     }, [location, dispatch])
     
     const posts = useSelector((state) => state.posts)
@@ -30,7 +30,7 @@ const Profile = () => {
             </TextField>
             <div>
                 {
-                    posts.map((post) => <Post post={post} />)
+                    posts.map((post, key) => (user?.result?.googleId === post.creator || user?.result?._id === post.creator) && (<Post post={post} currentId={key} />))
                 }
             </div>
 
