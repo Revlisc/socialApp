@@ -11,6 +11,16 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
+// export const getByUser = (id) => async (dispatch) => {
+//   try {
+//     const { data: {data}} = await api.fetchByUser(id)
+    
+//     dispatch({ type: FETCH_BY_USER, payload: { data }})
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }FETCH_BY_USER, 
+
 export const createPost = (post) => async (dispatch) => {
   try {
     const { data } = await api.createPost(post);
