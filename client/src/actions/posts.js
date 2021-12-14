@@ -41,6 +41,16 @@ export const updatePost = (id, post) => async (dispatch) => {
   }
 };
 
+export const updateUser = (id, user) => async (dispatch) => {
+  try {
+    const { data } = await api.updateUser(id, user)
+
+    dispatch({ type: UPDATE_BIO, payload: data})
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export const likePost = (id) => async (dispatch) => {
   const user = JSON.parse(localStorage.getItem('profile'));
 
