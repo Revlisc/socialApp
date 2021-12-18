@@ -5,6 +5,7 @@ import cors from 'cors'
 
 import postRoutes from './routes/posts.js'
 import userRoutes from './routes/users.js'
+import profileRoutes from './routes/profile.js'
 
 const app = express();
 
@@ -18,6 +19,7 @@ dotenv.config()
 //import the different routes
 app.use('/posts', postRoutes)
 app.use('/users', userRoutes)
+app.use('/profile', profileRoutes)
 
 app.get('/', (req, res) => {
     res.send('Hello')
