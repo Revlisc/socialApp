@@ -48,11 +48,12 @@ const Navbar = () => {
             <AppBar className={classes.appBar} color='inherit' >
                 <div >
                     <Typography component={Link} to='/' variant='h2'><img className={classes.logoName} src={Logo} alt='project icon' /></Typography>
-                    <div className={classes.navIcons} >
+                    
+                </div>
+                <div className={classes.navIcons} >
                         <GroupIcon className={classes.navIcon} />
                         <NotificationsIcon className={classes.navIcon} />
                         <ChatIcon className={classes.navIcon} />
-                    </div>
                 </div>
                 <Toolbar >
                     {user ? (

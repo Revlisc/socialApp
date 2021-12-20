@@ -6,7 +6,7 @@ export default makeStyles(() => ({
     //margin: '30px',
     
     display: 'flex',
-    position: 'absolute',
+    //position: 'absolute',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -35,19 +35,22 @@ export default makeStyles(() => ({
     marginLeft: '10px',
   },
   navIcons: {
-    //display: 'inline-flex',
-    marginLeft: '20%',
+    display: 'flex',
+    //marginLeft: '20%',
     width: '100%',
-    maxWidth: '100%',
+    maxWidth: '6rem',
+    //maxWidth: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
     //flexDirection: 'row',
-    
+    columnGap: '2.5rem',
   },
   navIcon: {
     //float: 'right',
     
     textAlign: 'center',
-    paddingLeft: '140px',
-    paddingRight: '140px',
+    //paddingLeft: '140px',
+    //paddingRight: '140px',
     textDecoration: 'none',
     color: '#5A4AE3',
   },

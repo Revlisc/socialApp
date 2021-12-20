@@ -24,7 +24,7 @@ const Profile = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(updateBio(user.result.name, {...bio, name: user?.result?.name}))
+        dispatch(updateBio(user.result.name, {...bio}))
     }
     const posts = useSelector((state) => state.posts)
     console.log(posts, 'b4')
