@@ -49,8 +49,7 @@ export default makeStyles(() => ({
     //float: 'right',
     
     textAlign: 'center',
-    //paddingLeft: '140px',
-    //paddingRight: '140px',
+    
     textDecoration: 'none',
     color: '#5A4AE3',
   },
