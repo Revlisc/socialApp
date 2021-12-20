@@ -4,7 +4,7 @@ import { updateBio } from '../controllers/profile.js';
 
 const router = express.Router();
 
-router.patch('/:id', getPosts);
+router.patch('/:id', updateBio);
 
 
 //router.get('/profile', getUserPosts)getUserPosts, 

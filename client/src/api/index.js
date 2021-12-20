@@ -21,5 +21,5 @@ export const signUp = (formData) => API.post('/users/signup', formData);
 
 export const comment = (value, id) => API.post(`/posts/${id}/addComment`, {value})
 
-export const updateUser = (id, updatedUser) = API.patch('/users/bio', updatedUser)
+export const updateBio = (id, updatedBio) => API.patch(`/profile/${id}`, updatedBio)
 //export const fetchByUser = () => API.get(`/posts`)
