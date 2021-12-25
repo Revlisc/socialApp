@@ -5,14 +5,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getPosts } from '../../actions/posts'
 import { updateBio } from '../../actions/profile'
 import Post from '../Posts/Post/Post'
-//import useStyles from './styles'
+import * as MUI from '@material-ui/core'
+import useStyles from '../Posts/styles'
 
 const Profile = () => {
     
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
     const location = useLocation()
     const dispatch = useDispatch()
-    //const classes = useStyles()
+    const classes = useStyles()
     const [bio, setBio] = useState({
         bio: '',  
     })
@@ -42,9 +43,11 @@ const Profile = () => {
             </form>
             
             <div>
+                <MUI.Stack className={classes.postEntry} spacing={3}>
                 {
-                    posts.map((post, key) => (user?.result?.googleId === post.creator || user?.result?._id === post.creator) && (<Post post={post} currentId={key} />))
+                    posts.map((post, key) => (user?.result?.googleId === post.creator || user?.result?._id === post.creator) && (<Post post={post} currentId={key} className={classes.post}/>))
                 }
+                </MUI.Stack>
             </div>
             <div>
                 friends list - 26
